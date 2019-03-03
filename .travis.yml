@@ -1,0 +1,37 @@
+language: android
+jdk: oraclejdk8
+
+sudo: false
+os: linux
+
+env:
+  global:
+    - ANDROID_API_LEVEL=28
+    - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+
+android:
+  components:
+    # Core
+    - tools
+    - platform-tools
+
+    # Build Tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+
+    # Extras
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - extra-android-support
+
+    # Emulator image
+    - sys-img-x86-android-28
+    - addon-google_apis-google-$ANDROID_API_LEVEL
+
+licenses:
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+    - 'android-sdk-preview-license-.+'
+
+script:
+  ./gradlew test
