@@ -1,12 +1,11 @@
-import org.jetbrains.kotlin.config.KotlinCompilerVersion
-
 plugins {
     id("com.android.application")
-    id("jacoco-android")
-
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+
+    id("jacoco-android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 jacoco {
@@ -56,13 +55,13 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(kotlin(module = "stdlib-jdk7", version = KotlinCompilerVersion.VERSION))
 
-    implementation("androidx.appcompat:appcompat:1.1.0-alpha04")
-    implementation("androidx.core:core-ktx:1.1.0-alpha05")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation(Deps.kotlin_stdlib)
+    implementation(Deps.appcompat)
+    implementation(Deps.core_ktx)
+    implementation(Deps.constraintlayout)
 
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.2.0-alpha03")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0-alpha03")
+    testImplementation(Deps.junit)
+    androidTestImplementation(Deps.runner)
+    androidTestImplementation(Deps.espresso_core)
 }
