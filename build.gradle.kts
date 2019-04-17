@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         classpath(Deps.android_gradle_plugin)
         classpath(Deps.kotlin_gradle_plugin)
-        classpath(Deps.jacoco_android)
+        classpath(Deps.jacoco_android_plugin)
         classpath(Deps.navigation_safe_args_gradle_plugin)
     }
 }
