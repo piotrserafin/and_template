@@ -1,7 +1,7 @@
 object Versions {
 
     const val kotlin = "1.3.30"
-    const val android_gradle_plugin = "3.3.2"
+    const val android_gradle_plugin = "3.4.0"
     const val navigation_safe_args_gradle_plugin = "2.1.0-alpha02"
     const val jacoco_android_plugin = "0.1.4"
 
