@@ -2,18 +2,16 @@
 
 buildscript {
 
-    val kotlinVersion = "1.3.30"
-
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:3.3.2")
-        classpath(kotlin(module = "gradle-plugin", version = kotlinVersion))
-
-        classpath("com.dicedmelon.gradle:jacoco-android:0.1.4")
+        classpath(Deps.android_gradle_plugin)
+        classpath(Deps.kotlin_gradle_plugin)
+        classpath(Deps.jacoco_android_plugin)
+        classpath(Deps.navigation_safe_args_gradle_plugin)
     }
 }
 
