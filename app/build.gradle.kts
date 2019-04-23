@@ -9,7 +9,7 @@ plugins {
 }
 
 jacoco {
-    toolVersion = "0.8.3"
+    toolVersion = Versions.jacoco
 }
 
 tasks.all {
@@ -60,6 +60,7 @@ android {
 }
 
 dependencies {
+
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     // Core
@@ -68,18 +69,58 @@ dependencies {
     implementation(Deps.core_ktx)
     implementation(Deps.constraintlayout)
 
+    // Material
+    implementation(Deps.material)
+
     // Kotlin Android Coroutines
-    implementation(Deps.coroutines_core)
-    implementation(Deps.coroutines_android)
+    implementation(Deps.Coroutines.core)
+    implementation(Deps.Coroutines.android)
+
+    // Kodein
+    implementation(Deps.Kodein.generic_jvm)
+    implementation(Deps.Kodein.framework_androidx)
 
     // Navigation
-    implementation(Deps.navigation_fragment_ktx)
-    implementation(Deps.navigation_ui_ktx)
+    implementation(Deps.Arch.Navigation.fragment_ktx)
+    implementation(Deps.Arch.Navigation.ui_ktx)
+
+    // Lifecycle
+    implementation(Deps.Arch.Lifecycle.extension)
+    implementation(Deps.Arch.Lifecycle.viewmodel_ktx)
+    testImplementation(Deps.Arch.Lifecycle.core_testing)
+    kapt(Deps.Arch.Lifecycle.compiler)
 
     // Room
-    implementation(Deps.room_runtime)
-    implementation(Deps.room_ktx)
-    kapt(Deps.room_compiler)
+    implementation(Deps.Arch.Room.runtime)
+    implementation(Deps.Arch.Room.ktx)
+    testImplementation(Deps.Arch.Room.testing)
+    kapt(Deps.Arch.Room.compiler)
+
+    // WorkManager
+    implementation(Deps.Arch.WorkManager.work)
+    androidTestImplementation(Deps.Arch.WorkManager.testing)
+
+    // Paging
+    implementation(Deps.Arch.paging)
+
+    // Preference
+    implementation(Deps.Arch.preference)
+
+    // Retrofit
+    implementation(Deps.Retrofit.retrofit)
+    implementation(Deps.Retrofit.converter_gson)
+    implementation(Deps.Retrofit.converter_scalars)
+    implementation(Deps.Retrofit.coroutines_adapter)
+
+    // Glide
+    implementation(Deps.Glide.glide)
+    kapt(Deps.Glide.compiler)
+
+    // GSON
+    implementation(Deps.gson)
+
+    // Timber
+    implementation(Deps.timber)
 
     // Test
     testImplementation(Deps.junit)
